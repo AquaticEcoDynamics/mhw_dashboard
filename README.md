@@ -34,7 +34,7 @@ Run the following command in your laptop directory terminal accordingly:
 > Remember to change the R version in ```dockerfile``` to be same as the version of your R script (R studio).
 ---
 ### The dashboard
-<p align="justify">The demoMHW R Shiny App, adapted from the original development by robert.schlegel@imev-mer.fr, is a tool for identifying Marine Heatwave Events (MHW) and introducing users with the MHW concept. It begins with the selection or upload of time series data, followed by customisation of key statistical parameters that will affect climatology and threshold. Users can then specify a temperature threshold and set the duration required for threshold exceedance to qualify as an MHW event. The app is organised into six-tab panels, including: </p>
+<p align="justify">The demoMHW R Shiny App, adapted from the original development by robert.schlegel@imev-mer.fr, is a tool for identifying Marine Heatwave Events (MHW) and introducing users with the MHW concept. It begins with the selection or upload[^1] of time series data, followed by customisation of key statistical parameters that will affect climatology and threshold. Users can then specify a temperature threshold and set the duration required for threshold exceedance to qualify as an MHW event. The app is organised into six-tab panels, including: </p>
 
 <p align="justify">(a) an Overview section with a screenshot of Cockburn Sound virtual sensor location linked to temperature data points, and glossary explaining each label and legend in the figures; </p>
 
@@ -49,3 +49,8 @@ Run the following command in your laptop directory terminal accordingly:
 <p align="justify">(f) The Main Event section highlighting the most significant MHW occurrence. </p>
 
 Categorised lolli and main event plot can also be plotted.
+
+[^1]: The uploaded file needs to have and consist only two columns as shown below:
+      | t  | temp |
+      | ------------- | ------------- |
+      | date  | daily sea surface temperature  |
