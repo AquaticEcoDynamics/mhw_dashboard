@@ -201,7 +201,7 @@ detect_input <- list(
 
 
 # Cards -------------------------------------------------------------------
-
+library(bslib)
 ## The main content of the app
 cards <- list(
   page_fluid(
@@ -295,7 +295,7 @@ cards <- list(
     p("Hobday, A. J., Oliver, E. C., Gupta, A. S., Benthuysen, J. A., Burrows, M. T., Donat, M. G., ... & Smale, D. A. 
       (2018). Categorizing and naming marine heatwaves. Oceanography, 31(2), 162-173.", style = "text-align: justify;")
   ),
-  navset_card_pill(
+  bslib::navset_card_pill(
     id = "ts_cards",
     selected = "Day",
     sidebar = sidebar(ts_input[[3]], position = "right", open = FALSE),
@@ -325,7 +325,7 @@ cards <- list(
       withSpinner(plotOutput("exceedancePlot", height = "700px"), type = 6, color = "#b0b7be"),
       p("thresh: the threshold of daily sea surface temperature for highlighting", style = "color:red;")
   ),
-  navset_card_tab(
+  bslib::navset_card_tab(
     full_screen = FALSE,
     nav_panel("Table", withSpinner(DT::DTOutput("detectTable", height = "700px"), type = 6, color = "#b0b7be")),
     nav_panel("Lolli", withSpinner(plotlyOutput("lolliPlot", height = "700px"), type = 6, color = "#b0b7be")),
