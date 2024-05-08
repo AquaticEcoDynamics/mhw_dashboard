@@ -1,9 +1,11 @@
 # Marine Heatwave Dashboard
-Adapted from https://github.com/FACE-IT-project/WP1 by robert.schlegel@imev-mer.fr [shiny -> demoMHW]
----
+
 > [!NOTE]
 > R version 4.3.1 (2023-06-16)
----
+
+### Acknowledgement
+This app is adapted from https://github.com/FACE-IT-project/WP1 by robert.schlegel@imev-mer.fr [shiny/demoMHW].
+
 ### Run the R Shiny App on VSCode Linux dev container
 1. Install the following extensions:
    - Dev Containers
