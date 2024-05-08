@@ -52,6 +52,7 @@ Categorised lolli and main event plot can also be plotted.
 
 > [!NOTE]
 >  The uploaded file needs to have and consist only two columns as shown below:
->  | t  | temp |
-   | ------------- | ------------- |
-   | date  | daily sea surface temperature  |
+>
+>| t  | temp |
+>| ------------- | ------------- |
+>| date  | daily sea surface temperature  |
