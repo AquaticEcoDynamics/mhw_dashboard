@@ -1,3 +1,6 @@
+# Marine Heatwave Dashboard
+Adapted from https://github.com/FACE-IT-project/WP1 by robert.schlegel@imev-mer.fr [shiny -> demoMHW]
+---
 > [!NOTE]
 > R version 4.3.1 (2023-06-16)
 ---
@@ -6,9 +9,11 @@
    - Dev Containers
    - R
 2. Reopen your VSCode in container.
+3. Open a new terminal in your VSCode, type ```R```.
+4. Run ```runApp("app_cockburn.R")```.
 ---
 ### Dockerised the R Shiny App (on Mac)
-Run the following command in your directory terminal accordingly:
+Run the following command in your laptop directory terminal accordingly:
 1. To build your docker base (only need to be run once, except when you make changes in your Dockerfile_base)
    ```
    docker build -f Dockerfile_base --progress=plain -t mhw_base .
