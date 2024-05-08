@@ -205,10 +205,6 @@ library(bslib)
 ## The main content of the app
 cards <- list(
   page_fluid(
-    # card(
-    #   full_screen = FALSE,
-    #   withSpinner(plotOutput("locationmap", height = "700px"), type = 6, color = "#b0b7be")
-    # ),
     img(src = "Point location.jpeg", width = "600px",
         style = "float: left; margin-right: 30px; margin-top: 30px; margin-bottom: 10px"),
     
@@ -498,19 +494,6 @@ server <- function(input, output, session) {
   
   
   ## Plots/tables -----------------------------------------------------------
-  
-  # # Location map
-  # df = structure(list(Lat = c(-31.77, -31.85, -31.94, -31.9, -32.03, -32.1, 
-  #                             -32.19, -32.19, -32.19, -32.35, -32.36, -32.44, 
-  #                             -32.51), 
-  #                     Lon = c(115.65, 115.48, 115.68, 115.68, 115.37, 115.69,
-  #                             115.35, 115.52, 115.73, 115.44, 115.6, 115.69, 
-  #                             115.6), 
-  #                     Place = structure(1:13, 
-  #                                       .Label = c("p01", "p02", "p03", "p04", "p05",
-  #                                                  "p06", "p07", "p08", "p09", "p10",
-  #                                                  "p11", "p12", "p13"), class = "factor")
-  #                     ), class = "data.frame")
   
   # All time plot
   output$allTime <- renderPlot({
