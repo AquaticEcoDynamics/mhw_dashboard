@@ -70,31 +70,37 @@ awss3Connect <- function(filename){
 for (i in 1:13) {
   # High-resolution temperature data (2002-onwards, ~1.1km resolution) [GHRSST]
   # Location: [s3://wamsi-westport-project-1/SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/]
-  file1 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/2002-2023/GHRSST_sst_point_", i, ".csv")
-  file2 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/2024-present/ghrsst_sst_point_", i, ".csv")
+  file_hr <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/Points/ghrsst_sst_point_", i, ".csv")
   
   # Long-term temperature data (1982-Onwards, ~5km resolution) [CMEMS]
   # Location: [s3://wamsi-westport-project-1/SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temp/]
-  file3 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temp/1981-2006/SST_19811001_20061231_point_", i, ".csv")
-  file4 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temp/2007_present/CMEMS_SST_point_", i, ".csv")
+  file_lt <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temperature/Points/CMEMS_SST_point_", i, ".csv")
   
-  df1 <- awss3Connect(file1)
-  df2 <- awss3Connect(file2)
-  df3 <- awss3Connect(file3)
-  df4 <- awss3Connect(file4)
+  df_hr <- awss3Connect(file_hr)
+  df_lt <- awss3Connect(file_lt)
   
-  sst1 <- process_data(df1)
-  sst2 <- process_data(df2)
-  sst3 <- process_data(df3)
-  sst4 <- process_data(df4)
+  sst_hr <- process_data(df_hr)
+  sst_lt <- process_data(df_lt)
   
-  sst3$temp <- (sst3$temp - 273.15) 
-  sst4$temp <- (sst4$temp - 273.15)
+  sst_lt$temp <- (sst_lt$temp - 273.15)
   
   # Assign each dataframe to a separate variable
-  assign(paste0("GHRsst_p", i), rbind(sst1,sst2))  
-  assign(paste0("CMEMS_p", i), rbind(sst3,sst4)) 
+  assign(paste0("GHRsst_p", i), sst_hr)  
+  assign(paste0("CMEMS_p", i), sst_lt) 
 }
+
+# Location map
+df = structure(list(Lat = c(-31.77, -31.85, -31.94, -31.9, -32.03, -32.1,
+                            -32.19, -32.19, -32.19, -32.35, -32.36, -32.44,
+                            -32.51),
+                    Lon = c(115.65, 115.48, 115.68, 115.68, 115.37, 115.69,
+                            115.35, 115.52, 115.73, 115.44, 115.6, 115.69,
+                            115.6),
+                    Place = structure(1:13,
+                                      .Label = c("p01", "p02", "p03", "p04", "p05",
+                                                 "p06", "p07", "p08", "p09", "p10",
+                                                 "p11", "p12", "p13"), class = "factor")
+), class = "data.frame")
 
 # Inputs ------------------------------------------------------------------
 
