@@ -222,7 +222,7 @@ cards <- list(
     
     h2(tags$b("Glossary")),
     p(tags$span(style = "color:black; font-size:25px; font-weight:bold;", "temp"),
-      ": The temperature values (°C) of a given time series", style = "text-align: justify;"),
+      ": The temperature values (°C) of a given time series.", style = "text-align: justify;"),
     p(tags$span(style = "color:darkgreen; font-size:25px; font-weight:bold;", "mean"),
       ": The overall mean value in a time series. Determined by averaging all daily data together to find a single value.
       This is used to determine the temperature anomalies in a time series, which may be used in place of the normal 
