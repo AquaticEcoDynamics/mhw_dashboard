@@ -70,23 +70,30 @@ awss3Connect <- function(filename){
 for (i in 1:13) {
   # High-resolution temperature data (2002-onwards, ~1.1km resolution) [GHRSST]
   # Location: [s3://wamsi-westport-project-1/SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/]
-  file_hr <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/Points/ghrsst_sst_point_", i, ".csv")
+  file1 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/Points/2002-2023/GHRSST_sst_point_", i, ".csv")
+  file2 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/GHRSST/Points/ghrsst_sst_point_", i, ".csv")
   
   # Long-term temperature data (1982-Onwards, ~5km resolution) [CMEMS]
   # Location: [s3://wamsi-westport-project-1/SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temp/]
-  file_lt <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temperature/Points/CMEMS_SST_point_", i, ".csv")
+  file3 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temperature/Points/1981-2006/SST_19811001_20061231_point_", i, ".csv")
+  file4 <- paste0("SH20221201_Westport_Deliverables/Raw_Data/Virtual_Sensor/Temperature/Points/CMEMS_SST_point_", i, ".csv")
   
-  df_hr <- awss3Connect(file_hr)
-  df_lt <- awss3Connect(file_lt)
+  df1 <- awss3Connect(file1)
+  df2 <- awss3Connect(file2)
+  df3 <- awss3Connect(file3)
+  df4 <- awss3Connect(file4)
   
-  sst_hr <- process_data(df_hr)
-  sst_lt <- process_data(df_lt)
+  sst1 <- process_data(df1)
+  sst2 <- process_data(df2)
+  sst3 <- process_data(df3)
+  sst4 <- process_data(df4)
   
-  sst_lt$temp <- (sst_lt$temp - 273.15)
+  sst3$temp <- (sst3$temp - 273.15)
+  sst4$temp <- (sst4$temp - 273.15)
   
   # Assign each dataframe to a separate variable
-  assign(paste0("GHRsst_p", i), sst_hr)  
-  assign(paste0("CMEMS_p", i), sst_lt) 
+  assign(paste0("GHRsst_p", i), rbind(sst1,sst2))
+  assign(paste0("CMEMS_p", i), rbind(sst3,sst4))
 }
 
 # Location map
