@@ -11,7 +11,7 @@ RUN mkdir /home/mhw_app
  
 COPY app_cockburnsound.R /home/mhw_app/app_cockburnsound.R
 COPY functions.R /home/mhw_app/functions.R
-COPY .env /home/mhw_app/.env
+# COPY .env /home/mhw_app/.env
 COPY www/ /home/mhw_app/www/
 
 WORKDIR /home/mhw_app
