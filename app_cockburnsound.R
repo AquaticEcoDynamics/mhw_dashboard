@@ -61,7 +61,7 @@ awss3Connect <- function(filename){
                                       filename = basename(filename),
                                       opts = list(
                                         base_url = Sys.getenv('AWS_S3_ENDPOINT'),
-                                        region = Sys.getenv('AWS_DEFAULT_REGION'),
+                                        region = Sys.getenv(''),
                                         key = Sys.getenv('AWS_ACCESS_KEY_ID'),
                                         secret = Sys.getenv('AWS_SECRET_ACCESS_KEY')))
   return(fetchedData)
