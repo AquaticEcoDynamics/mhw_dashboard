@@ -51,7 +51,7 @@ Run the following command in your laptop directory terminal accordingly:
 Categorised lolli and main event plot can also be plotted.
 
 > [!NOTE]
->  The uploaded file needs to have and consist only two columns as shown below:
+>  The uploaded file needs to have and consist only two columns as shown below: 
 >
 >| t  | temp |
 >| ------------- | ------------- |
