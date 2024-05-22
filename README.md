@@ -12,7 +12,7 @@ This app is adapted from https://github.com/FACE-IT-project/WP1 by robert.schleg
    - R
 2. Reopen your VSCode in container.
 3. Open a new terminal in your VSCode, type ```R```.
-4. Run ```runApp("app_cockburn.R")```.
+4. Run ```runApp("app_cockburnsound.R")```.
 ---
 ### Dockerised the R Shiny App (on Mac)
 Run the following command in your laptop directory terminal accordingly:
