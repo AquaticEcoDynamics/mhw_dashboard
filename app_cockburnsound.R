@@ -351,7 +351,7 @@ cards <- list(
 # Define UI
 ui <- page_navbar(
   
-  title = "Marine Heatwave Definition", 
+  title = "Cockburn Sound Marine Heatwave Analysis", 
   header = list(use_cicerone()),
   id = "nav_bar",
   
